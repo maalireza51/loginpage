@@ -174,3 +174,35 @@ body{
 .btn:hover{
 	border-radius: 50%;
 }
+
+.text-center{
+	text-align: center;
+}
+
+.btn-primary{
+	padding: 10px 30px;
+	color: #ffffff;
+	background-color: #2076ff;
+	border: none;
+	cursor: pointer;
+}
+.btn-primary:hover{
+	background-color: #3a86ff;
+}
+
+.spinner{
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	border: 2px dashed blue;
+	margin: 0 10px;
+	padding: 0;
+	animation: spin 2s infinite;
+}
+
+@keyframes spin {
+	to{
+		transform: rotate(360deg);
+	}
+}

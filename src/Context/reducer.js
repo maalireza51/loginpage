@@ -3,13 +3,16 @@ export const actionTypes = {
     LOGIN_SUCCESS: 'LOGIN_SUCCESS',
     LOGIN_ERROR: 'LOGIN_ERROR',
     LOGOUT: 'LOGOUT',
+    TEXT_INPUT: 'TEXT_INPUT'
 }
 
 
 export const initialState = {
+    username: '',
+    password: '',
     user: null,
     token: null,
-    loading: true,
+    loading: false,
     error: null,
 }
 
@@ -29,7 +32,7 @@ export function reducer(state, action) {
                 ...state,
                 user: user,
                 token: token,
-                loading: true,
+                loading: false,
                 error: null
             }
         case actionTypes.LOGIN_ERROR:
@@ -45,9 +48,15 @@ export function reducer(state, action) {
                 ...state,
                 user: null,
                 token: null,
-                loading: true,
+                loading: false,
                 error: null
             }
+        case actionTypes.TEXT_INPUT:
+            const { key , value} = action.payload;
+                return{
+                    ...state,
+                    [key]: value
+                }
         default:
             throw Error(`action type is not allowed: ${action.type}`)
     }
